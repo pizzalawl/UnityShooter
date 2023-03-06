@@ -6,9 +6,9 @@ public class Shooting : MonoBehaviour
 {
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
-    public float bulletSpeed = 200f;
+    public Vector3 bulletVelocity = new Vector3(10, 0, 0);
     public GameObject character;
-    Vector3 offset = new Vector3(0, 0, 0);
+    public Vector3 offset = new Vector3(0, 0, 0);
 
     // Update is called once per frame
     void Update()
@@ -20,8 +20,9 @@ public class Shooting : MonoBehaviour
             GameObject light = GameObject.Find("Light");
             Destroy(camera);
             Destroy(light);
-            rb.velocity = transform.forward * bulletSpeed * Time.deltaTime;
+            rb.velocity = bulletVelocity;
+            bullet.gameObject.AddComponent("bulletColliding");
         }
-        transform.position = character.transform.position;
+        transform.position = character.transform.position + offset;
     }
 }
