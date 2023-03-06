@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
         float zValue = Input.GetAxis("Vertical") * Time.deltaTime * speed;
         float xValue = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
         transform.position += new Vector3(xValue, 0, zValue);
-        if(Input.Getkey(Space))
+        if(Input.Getkey(KeyCode.Space))
         {
           rb.AddRelativeForce(Vector3.up*Time.deltaTime*Jumpforce);
         }
