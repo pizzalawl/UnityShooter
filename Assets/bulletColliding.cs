@@ -8,5 +8,6 @@ public class bulletColliding : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         Destroy(this);
+        Debug.Log("hit");
     }
 }
