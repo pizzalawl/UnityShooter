@@ -18,6 +18,6 @@ public class Shooting : MonoBehaviour
             Rigidbody rb = bullet.AddComponent<Rigidbody>() as Rigidbody;
             rb.velocity = transform.forward * bulletSpeed * Time.deltaTime;
         }
-        transform.position = character.transform.position
+        transform.position = character.transform.position;
     }
 }
