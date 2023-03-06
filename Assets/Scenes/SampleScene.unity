@@ -675,5 +675,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 1261304880}
   bulletPrefab: {fileID: 919132149155446097, guid: 5cdd6effd7a643f4498972a24293e5fd, type: 3}
-  bulletSpeed: 10
+  bulletVelocity: {x: 0, y: 0, z: 10}
   character: {fileID: 1440398288}
+  offset: {x: 0, y: 0, z: 0}
