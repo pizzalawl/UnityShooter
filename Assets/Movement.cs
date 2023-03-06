@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    Rigidbody rb;
     public float Jumpforce =20f;
     public float speed = 3f;
      void Start() 
      {
-        rb = GetComponent<Rigidbody>();
+        Rigidbody rb = GetComponent<Rigidbody>();
     }
     // Update is called once per frame
     void Update()
