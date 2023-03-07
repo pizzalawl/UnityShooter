@@ -6,10 +6,12 @@ public class Movement : MonoBehaviour
 {
     public float Jumpforce =20f;
     public float speed = 3f;
-     void Start() 
-     {
-        Rigidbody rb = GetComponent<Rigidbody>();
+
+    void Start()
+    {
+      
     }
+    
     // Update is called once per frame
     void Update()
     {
@@ -17,8 +19,9 @@ public class Movement : MonoBehaviour
         float zValue = Input.GetAxis("Vertical") * Time.deltaTime * speed;
         float xValue = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
         transform.position += new Vector3(xValue, 0, zValue);
-        if(Input.Getkey(Space))
+        if(Input.GetKey(KeyCode.Space))
         {
+          Rigidbody rb = GetComponent<Rigidbody>();
           rb.AddRelativeForce(Vector3.up*Time.deltaTime*Jumpforce);
         }
     }
