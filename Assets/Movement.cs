@@ -27,9 +27,9 @@ public class Movement : MonoBehaviour
           }
           touchingG = false;
         }
-        void OnCollisionEnter(Collision collision)
+         private void OnCollisionEnter(Collision other)
         {
-          if(collision.gameObject == GameObject.Find("Floor"))
+          if(other gameObject.tag == "Floor")
           {
            touchingG = true;
           }
