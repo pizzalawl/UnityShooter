@@ -21,6 +21,8 @@ public class Shooting : MonoBehaviour
             Destroy(camera);
             Destroy(light);
             rb.velocity = bulletVelocity;
+            bullet.AddComponent<bulletColliding>();
+
         }
         transform.position = character.transform.position + offset;
     }
