@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     Rigidbody rb;
     public float Jumpforce =20f;
     public float speed = 3f;
+    public bool isGrounded = true'
      void Start() 
      {
         rb = GetComponent<Rigidbody>();
@@ -18,9 +19,17 @@ public class Movement : MonoBehaviour
         float zValue = Input.GetAxis("Vertical") * Time.deltaTime * speed;
         float xValue = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
         transform.position += new Vector3(xValue, 0, zValue);
-        if(Input.Getkey(KeyCode.Space))
+        if(isGrounded && Input.Getkey(KeyCode.Space))
         {
           rb.AddRelativeForce(Vector3.up*Time.deltaTime*Jumpforce);
+          isGrounded = false;
         }
+       void OnCollisionEnter(Collision collision) 
+       {
+         isGrounded = true;
+       }
+        
+        
+        
     }
 }
