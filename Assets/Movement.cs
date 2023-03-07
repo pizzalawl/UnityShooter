@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     public bool touchingG = true;
     void Start()
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
@@ -21,13 +21,15 @@ public class Movement : MonoBehaviour
         transform.position += new Vector3(xValue, 0, zValue);
         if(Input.GetKeyDown(KeyCode.Space))
         {
-       
-          rb.AddRelativeForce(Vector3.up*jumpForce*Time.deltaTime);
-           touchingG = false;
+          Rigidbody rb = GetComponent<Rigidbody>();
+          if(touchingG == true){
+            rb.AddRelativeForce(Vector3.up*jumpForce*Time.deltaTime);
+          }
+          touchingG = false;
         }
         void OnCollisionEnter(Collision collision)
         {
-          if(collision.gameObject == "Plane")
+          if(collision.gameObject == GameObject.Find("Floor"))
           {
            touchingG = true;
           }
