@@ -6,6 +6,11 @@ public class Movement : MonoBehaviour
 {
     public float jumpForce =200f;
     public float speed = 3f;
+    public bool touchingG = true;
+    void Start()
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -16,8 +21,16 @@ public class Movement : MonoBehaviour
         transform.position += new Vector3(xValue, 0, zValue);
         if(Input.GetKeyDown(KeyCode.Space))
         {
-          Rigidbody rb = GetComponent<Rigidbody>();
-          rb.AddRelativeForce(0, jumpForce, 0);
+       
+          rb.AddRelativeForce(Vector3.up*jumpForce*Time.deltaTime);
+           touchingG = false;
+        }
+        void OnCollisionEnter(Collision collision)
+        {
+          if(collision.gameObject == "Plane")
+          {
+           touchingG = true;
+          }
         }
     }
 }
