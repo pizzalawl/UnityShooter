@@ -6,7 +6,7 @@ public class Shooting : MonoBehaviour
 {
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
-    public Vector3 bulletVelocity = new Vector3(10, 0, 0);
+    public Vector3 bulletVelocity = new Vector3(50, 0, 0);
     public GameObject character;
     public Vector3 offset = new Vector3(0, 0, 0);
 
@@ -21,7 +21,9 @@ public class Shooting : MonoBehaviour
             Destroy(camera);
             Destroy(light);
             rb.velocity = bulletVelocity;
-            bullet.gameObject.AddComponent("bulletColliding");
+            bullet.AddComponent<BoxCollider>();
+            bullet.AddComponent<bulletColliding>();
+
         }
         transform.position = character.transform.position + offset;
     }

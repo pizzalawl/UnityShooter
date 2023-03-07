@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
-{
-    // Update is called once per frame
+public class bulletColliding : MonoBehaviour
+{    
+    // Called when object collides with bullet
     void OnCollisionEnter(Collision collision)
     {
-        Destroy(this);
-        Debug.Log("hit");
+        Debug.Log("Hit the cube");
     }
 }
