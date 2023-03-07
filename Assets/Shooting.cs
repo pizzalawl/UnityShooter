@@ -21,6 +21,7 @@ public class Shooting : MonoBehaviour
             Destroy(camera);
             Destroy(light);
             rb.velocity = bulletVelocity;
+            bullet.AddComponent<BoxCollider>();
             bullet.AddComponent<bulletColliding>();
 
         }
