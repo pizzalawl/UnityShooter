@@ -10,7 +10,7 @@ public class fpsCam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class fpsCam : MonoBehaviour
     {
            
            float mouseX * Input.GetAxis("Mouse X")* Time.deltaTime* sensitivity;
-           float mouseY * Input.GetAxis("Mouse Y")*Time.deltaTime* sensitivity;
+           float mouseY * Input.GetAxis("Mouse Y")* Time.deltaTime* sensitivity;
            payerBody.rotate(Vector3.up * mouseX);
            
            xRotacion -= mouseY;
