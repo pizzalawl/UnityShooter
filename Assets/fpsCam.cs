@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class fpsCam : MonoBehaviour
 {
-    Camera m_MainCamera;
-    public Camera m_SecondaryCamera;
-    
+    [SeriliezeField] float sensitivity = 100f;
+    public Transform payerbody;
+    float xRotacion = 0f;
     // Start is called before the first frame update
     void Start()
     {
-        m_MainCamera = Camera.main;
-        m_MainCamera.enabled = true;
-        m_SecondaryCamera.enabled = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.V) && m_MainCamera.enabled){
-            m_SecondaryCamera.enabled = true;
-            m_MainCamera.enabled = false;
-        }
-        else if(Input.GetKeyDown(KeyCode.V) && m_SecondaryCamera.enabled){
-            m_SecondaryCamera.enabled = false;
-            m_MainCamera.enabled = true;
-        }
+           
+           float mouseX * Input.GetAxis("Mouse X")* Time.deltaTime* sensitivity;
+           float mouseY * Input.GetAxis("Mouse Y")* Time.deltaTime* sensitivity;
+           payerBody.rotate(Vector3.up * mouseX);
+           
+           xRotacion -= mouseY;
+           
+         X = Mathf.Clamp(xRotacion, -90f, 90f);
+           transform.localRotation = Quanternion.Euler(xRotacion,0f,0f);
+           
     }
 }
