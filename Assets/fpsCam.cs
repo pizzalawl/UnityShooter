@@ -17,8 +17,8 @@ public class fpsCam : MonoBehaviour
     void Update()
     {
            
-           float mouseX * Input.GetAxis("Mouse X")* Time.deltaTime* sensitivity;
-           float mouseY * Input.GetAxis("Mouse Y")* Time.deltaTime* sensitivity;
+           float mouseX = Input.GetAxis("Mouse X")* Time.deltaTime* sensitivity;
+           float mouseY = Input.GetAxis("Mouse Y")* Time.deltaTime* sensitivity;
            payerBody.rotate(Vector3.up * mouseX);
            
            xRotacion -= mouseY;
