@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
   public float jumpForce = 200f;
-  public float speed = 3f;
+  public float speed = 8f;
   public Rigidbody rb;
   public bool onGround = false;
   
@@ -17,8 +17,8 @@ public class Movement : MonoBehaviour
   void Update()
   {
     Vector3 position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-    float zValue = Input.GetAxis("Vertical") * Time.deltaTime * speed;
-    float xValue = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
+    float zValue = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
+    float xValue = Input.GetAxis("Vertical") * Time.deltaTime * speed;
     transform.position += new Vector3(xValue, 0, zValue);
 
     if(Input.GetButtonDown("Jump") && onGround){
